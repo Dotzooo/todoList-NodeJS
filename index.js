@@ -97,7 +97,7 @@ const requestListener = (req, res) => {
             //RESTful API preflight
             resHandle(res, 200, null, null, true)
             break;
-            default:
+        default:
             break;
     }
 }
