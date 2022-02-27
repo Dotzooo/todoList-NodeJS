@@ -1,3 +1,5 @@
+const Headers = require('./Header/index')
+
 // res
 // statusCode:  API狀態代碼
 // status:      API狀態
@@ -5,14 +7,7 @@
 // options:     req方法是否為OPTIONS
 function responseHandle(res, statusCode, status, data = '欄位未填寫正確', options = false) {
 
-    const headers = {
-        'Access-Control-Allow-Headers': 'Content-Type, Authorization, Content-Length, X-Requested-With',
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Methods': 'PATCH, POST, GET,OPTIONS,DELETE',
-        'Content-Type': 'application/json'
-    }
-
-    res.writeHead(statusCode, headers)
+    res.writeHead(statusCode, Headers)
 
     if (!options) {
         let resBody = {}
@@ -29,9 +24,9 @@ function responseHandle(res, statusCode, status, data = '欄位未填寫正確',
                 resBody.message = data
             }
         }
-        
+
         res.write(JSON.stringify(resBody))
-    } 
+    }
 
     res.end()
 }
