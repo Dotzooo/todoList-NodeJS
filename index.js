@@ -3,7 +3,7 @@ const http = require('http')
 
 const { v4: uuidv4 } = require('uuid');
 const resHandle = require('./resHandle')
-const PORT = process.env.PORT || 3005
+const PORT = process.env.PORT || '3005'
 
 const todos = []
 
